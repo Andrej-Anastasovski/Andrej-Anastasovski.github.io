@@ -26,9 +26,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // Add click event to update active link on navigation
                 navLinks.forEach(link => {
-                    link.addEventListener("click", function () {
-                        navLinks.forEach(link => link.classList.remove("selected"));
-                        this.classList.add("selected");
+                    link.addEventListener("click", function (event) {
+                        event.preventDefault(); // Prevent default link behavior
+                        const url = this.getAttribute("href");
+
+                        // Fetch the new page content
+                        fetch(url)
+                            .then(response => response.text())
+                            .then(data => {
+                                const parser = new DOMParser();
+                                const doc = parser.parseFromString(data, 'text/html');
+                                const newContent = doc.querySelector('.right-column').innerHTML;
+                                const contentContainer = document.querySelector('.right-column');
+                                if (contentContainer) {
+                                    contentContainer.innerHTML = newContent; // Inject new content
+                                    setActiveLink(); // Update active link
+                                    window.history.pushState(null, "", url); // Update URL without refreshing
+                                } else {
+                                    console.error("Content container not found");
+                                }
+                            })
+                            .catch(error => console.error("Error loading page content:", error));
                     });
                 });
             } else {
