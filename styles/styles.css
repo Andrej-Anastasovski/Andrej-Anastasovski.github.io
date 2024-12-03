@@ -1,0 +1,284 @@
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to right, #121233, #1a1a36);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    padding: 5% 0%; /* 5% padding on top and bottom, 0 on left/right */
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0 auto;
+    gap: 0;
+    padding: 0 5%;
+    position: relative;
+}
+
+
+/* Left Column */
+.left-column {
+    position: fixed;
+    width: auto;
+    min-height: 200px;
+    height: 90vh;
+    max-height: 100vh;
+    margin-right: 50%;
+}
+
+/* Navbar styles for the left column */
+nav ul {
+    list-style-type: none;
+    padding-left: 40px;
+    margin-top: -20px;
+}
+
+nav ul li {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #dcdcdc ;
+    font-size: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    transition: color 0.2s ease, font-size 0.2s ease, padding-left 0.2s ease;
+}
+
+/* Bulleting lines for navbar */
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 2px;
+    background-color: white;
+    transition: width 0.2s ease, left 0.2s ease;
+}
+
+/* Hover effect */
+nav ul li a:hover,
+nav ul li a.selected {
+    color: white;
+    font-size: 1.15rem;
+    padding-left: 40px;
+    text-decoration: none;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.1), 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+nav ul li a:hover::before,
+nav ul li a.selected::before {
+    width: 60px;
+    background-color: white;
+}
+
+.left-column h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    transform: scaleY(1.1);
+    margin-bottom: 15px;
+    color: #f1f1f1;
+    white-space: nowrap;
+}
+
+.left-column h4 {
+    font-size: 1.15rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #f1f1f1;
+    white-space: nowrap;
+}
+
+.left-column p {
+    font-size: 1rem;
+    color: #f1f1f1;
+    margin-bottom: 40px;
+    width: 75%;
+}
+
+/* Right Column */
+.right-column {
+    width: 50%;
+    padding: 0;
+    position: relative;
+    margin-left: 50%;
+    box-sizing: border-box;
+}
+
+/* Right Column text styles */
+.right-column h2 {
+    font-size: 1.5rem;
+    color: #E8E8E8;
+}
+
+.right-column p {
+    font-size: 1rem;
+    color: #E8E8E8;
+    margin-bottom: 20px;
+}
+
+
+/* Social Media Icons Styling */
+.social-footer {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+}
+
+.social-icon {
+    color: #f1f1f1;
+    font-size: 1.5rem;
+    transition: color 0.2s ease;
+    padding-right: 35%;
+}
+
+.social-icon:hover {
+    color: #007bff;
+}
+
+.social-icon:active {
+    transform: scale(1.1);
+}
+
+
+.experience-card {
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+.date-role {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.date {
+    color: #a1a1b3;
+    font-size: 14px;
+}
+h3 {
+    color: white;
+    margin: 0;
+    font-size: 18px;
+}
+.description {
+    margin: 10px 0;
+    line-height: 1.5;
+    color: #E8E8E8;
+}
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+.tags span {
+    background: #3b3f51;
+    color: #ffffff;
+    border-radius: 15px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.contact-details a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+.contact-details a:hover {
+    color: #f1f1f1;
+    font-weight: bold;
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px){
+
+
+
+    .container {
+        flex-direction: column; /* Stack the columns vertically */
+        width: 100%;
+        gap: 10px;
+        padding: 0;
+    }
+
+    /* Remove fixed behavior and allow left column to scroll */
+    .left-column {
+        position: static;
+        margin-bottom: 15px;
+        margin-top: 20px;
+        width: 100%;
+        height: auto;
+    }
+
+    .right-column {
+        width: 100%;
+        margin-left: 0;
+        overflow: hidden;
+    }
+
+    /* Navbar as a column on mobile */
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left 40px;
+        padding-bottom: 10px;
+    }
+
+    nav ul li {
+        margin-top: auto;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+        text-decoration: none;
+        color: #f1f1f1;
+        transition: color 0.2s ease;
+    }
+
+
+    .left-column h1 {
+        font-size: 1.8rem;
+    }
+
+
+
+    .right-column h2 {
+        font-size: 1.2rem;
+    }
+
+    .right-column p {
+        font-size: 0.9rem;
+    }
+
+
+    body {
+        padding: 0% 5%;
+        margin: 0;
+    }
+
+     .social-footer {
+        margin-bottom: 20px;
+        position: relative;
+        width: 100%;
+        padding: 0 5%;
+        background-color: #1a1a38;
+        border-style: 10px;
+    }
+
+    .social-icon {
+        padding-right: 0;
+    }
+}

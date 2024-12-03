@@ -1,0 +1,66 @@
+
+/* Front Side of the Card */
+.card-front {
+    height: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    background: #1a1a36;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-front h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f1f1f1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    margin: 0;
+}
+
+.card-front h3 {
+    font-size: 1.2rem;
+    color: #c0c0c0;
+    margin-top: 10px;
+}
+
+/* Back Side of the Card */
+.card-back {
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;;
+    background: #1a1a36;
+    width: 100%;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    line-height: 1.1;
+}
+
+.card-back h2 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: #f1f1f1;
+    border-bottom: 2px solid #1a1a55;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.card-back p {
+    font-size: 1rem;
+    color: #e8e8e8;
+    margin: 10px 0;
+}
+
+.card-back a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.card-back a:hover {
+    color: #00afff;
+}
+
