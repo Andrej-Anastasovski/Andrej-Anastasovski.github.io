@@ -12,13 +12,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // Function to highlight the active link
                 function setActiveLink() {
-                    const currentPage = window.location.pathname.split("/").pop(); // Get current page
+                    let currentPage = window.location.pathname.split("/").pop(); // Get current page
+                    if (currentPage === "") {
+                        currentPage = "index.html"; // Default to index.html if the path is root
+                    }
                     navLinks.forEach(link => {
                         link.classList.remove("selected"); // Remove active class
                         if (link.getAttribute("href") === currentPage) {
                             link.classList.add("selected"); // Add active class to current page
                         }
                     });
+                }
+
+                // Function to dynamically load CSS
+                function loadCSS(href) {
+                    const existingLink = document.querySelector(`link[href="${href}"]`);
+                    if (!existingLink) {
+                        const link = document.createElement("link");
+                        link.rel = "stylesheet";
+                        link.href = href;
+                        document.head.appendChild(link);
+                    }
                 }
 
                 // Set the active link on page load
@@ -40,8 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
                                 const contentContainer = document.querySelector('.right-column');
                                 if (contentContainer) {
                                     contentContainer.innerHTML = newContent; // Inject new content
-                                    setActiveLink(); // Update active link
                                     window.history.pushState(null, "", url); // Update URL without refreshing
+                                    setActiveLink(); // Update active link
                                 } else {
                                     console.error("Content container not found");
                                 }
